@@ -1,0 +1,48 @@
+name: finances
+description: Please see the README on GitHub at <https://github.com/cpradog/finances#readme>
+synopsis: Double-entry accounting and invoices management for freelancers and small business
+category: Finances
+version: 0.0.0
+github: "cpradog/finances"
+author: "Carlos Prado"
+maintainer: "carlos.prado@cpradog.com"
+copyright: "2021 Carlos Prado"
+license: MIT
+
+extra-source-files:
+  - README.md
+  - LICENSE
+
+dependencies:
+  - base >= 4.7 && < 5
+  - hspec
+  - hspec-contrib
+  - QuickCheck
+  - HUnit
+  - text
+  - chronos
+
+library:
+  source-dirs: src
+
+executables:
+  finances-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - finances
+
+tests:
+  finances-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - finances
